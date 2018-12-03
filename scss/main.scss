@@ -1,0 +1,152 @@
+@import "partials/colors.scss";
+@import "partials/fonts.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+}
+
+svg {
+    &.logo {
+        height: 50px;
+        width: 40px;
+    }
+
+    path {
+        fill: $white;
+    }
+}
+
+
+div.navbarContainer {
+    margin: 0 auto;
+    padding: 0 2.0666667em;
+    width: 100%;
+    position: fixed;
+    z-index:10;
+
+    div#navbar {
+        display: grid;
+        grid-template-columns: 6fr 1fr;
+        padding: 10px 0px 10px 0px;
+
+        div.nav-right {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 10px 0px 10px 10px;
+            font-family: $openSansFont;
+            font-size: 12px;
+            font-weight: 600;
+            text-align: right;
+            color: $white;
+
+            div {
+                cursor: pointer;
+
+                &:hover{
+                    color: $primaryyellow;
+                }
+            }
+        }
+    }
+
+}
+
+
+ /*........ LOGIN / SIGNUP USER ........ */
+
+.modal, .loginModal {
+    display: none; 
+    position: fixed; 
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%;
+    overflow: hidden; 
+    background-color: $primaryblue;
+    padding-top: 60px;
+
+    .modal-content {
+        margin: 0% auto 15% auto; 
+        width: 40%; 
+
+        svg {
+            height: 100px;
+            width: 100px;
+            
+            path {
+                fill: $primaryyellow;
+            }
+
+        }
+
+        h1 {
+            font-family: $Playfair;
+            font-size: 40px;
+            color: $primaryyellow;
+            margin-bottom: 10px;
+        }
+
+        .closeOverlay{
+
+            .close{
+                position: absolute;
+                right: 15px;
+                top: 0;
+                color: $primaryyellow;
+                font-size: 30px;
+                font-weight: bold;
+
+                &:hover, &:focus {
+                    color: $white;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .container {
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            label {
+                color: $white;
+            }
+
+            input[type=text], input[type=password] {
+                width: 100%;
+                margin-bottom: 15px;
+                padding: 9px 10px;
+                font-size: 15px;
+                color: #6f6f6f;
+                border: 1px solid #ccc;
+            } 
+
+            .btnLoginUser, .btnSignUpUser {
+                padding: 13px;
+                background-color: $primaryblue;
+                border: 2px solid $white;
+                text-transform: uppercase;
+                color: $white;
+                font-weight: 600;
+                cursor: pointer;
+                margin-left:auto; 
+                margin-right:0;
+
+                &:hover {
+                    background-color: $primaryyellow; 
+                }
+            }
+        }
+    }
+}
+
+
+
