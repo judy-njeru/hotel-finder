@@ -73,35 +73,68 @@
             echo "</div>";
         ?>
         <div>
+            <input value="<?php echo $_GET['checkIn']; ?>" placeholder='dd/mm/yyy'>
+            <input value="<?php echo $_GET['checkOut']; ?>" placeholder='dd/mm/yyy'><br>
+            <!-- <input id="nrGuests" placeholder="guests" type="number" min="1" max="10000" value="<?php echo $_GET['guests']; ?>"><br> -->
             <?php
+                $iGuests = $_GET['guests'];
+                $iGuestsTest = $iGuests;
+                $jRooms = (object)[];
+                
                 foreach ($jHotel->rooms as $key => $jRoom) {
+                    $iAvailability = $jRoom->availability;
+                    if($iAvailability > 0){
+                        $nrOfThisRoomTypeNeeded = ceil($iGuestsTest/$jRoom->beds);
+                        if($nrOfThisRoomTypeNeeded <= $iAvailability && $iGuestsTest > 0 && $nrOfThisRoomTypeNeeded > 0){
+                            $jRooms->$key = $nrOfThisRoomTypeNeeded;
+                            $iGuestsTest = 0;
+                        }elseif($nrOfThisRoomTypeNeeded > $iAvailability && $iGuestsTest > 0 && $nrOfThisRoomTypeNeeded > 0){
+                            $jRooms->$key = $iAvailability;
+                            $iGuestsTest = $iGuestsTest - ($iAvailability*$jRoom->beds);
+                        }else{
+                            $jRooms->$key = 0;
+                        }
+                    }
+                    else{
+                        $jRooms->$key = 0;
+                    }
                     echo "<div class='marginTop' data-id='$key'>
                         <div>$jRoom->name</div>
-                        <div>$$jRoom->price pr. night</div>
-                        <div>beds: $jRoom->beds</div>
+                        <div>$<span class='boxPrice'>$jRoom->price</span> pr. night</div>
+                        <div>beds: <span class='boxBeds'>$jRoom->beds<span></div>
                         <div>availability: $jRoom->availability</div>
-                        <input class='nrRooms' type='number' placaholder='0' min='0' max='$jRoom->availability'>
+                        <input class='nrRooms' type='number' placaholder='0' min='0' max='$jRoom->availability' value='";
+                        echo $jRooms->$key;
+                    echo "'>
                     </div>";
                 }
             ?>
             <div class="marginTop">
-                <span>total</span>
-                
+                <div>total</div>
+                <div>rooms:<span id="boxTotalRooms"></span></div>
+                <div>beds:<span id="boxTotalBeds"></span></div>
+                <div>price:<span id="boxTotalPrice"></span></div>
             </div>
         </div>
     </div>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script>
-        $(document).on('change','.nrRooms',function(){
-            // const iRooms = $(this).parent().attr('data-id').val()
-            // $.get('data.txt', function(data) {
-                
-            // }
-        })
-
-
-
+        function updateInfo(){
+            let iRooms = 0
+            let iBeds = 0
+            let iPrice = 0
+            $('.nrRooms').map(function(){
+                iRooms = iRooms + Number($(this).val())
+                iBeds = iBeds + Number($(this).val()) * Number($(this).siblings().children('.boxBeds').text())
+                iPrice = iPrice + Number($(this).val()) * Number($(this).siblings().children('.boxPrice').text())
+            })
+            $('#boxTotalRooms').text(iRooms)
+            $('#boxTotalBeds').text(iBeds)
+            $('#boxTotalPrice').text('$'+iPrice)
+        }
+        $(document).ready(updateInfo())
+        $(document).on('change','.nrRooms',function(){updateInfo()})
     </script>
 </body>
 </html>

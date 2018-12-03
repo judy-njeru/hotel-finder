@@ -45,7 +45,11 @@
 <body>
     <div>
         <div id="boxFilters">
-            <input id="nrGuests" placeholder="guests" type="number" min="1" max="10000">
+            <label for="txtCheckInDate">check in</label>
+            <input name="checkInDate" id="txtCheckInDate" placeholder="dd/mm/yyyy" type="text">
+            <label for="txtCheckOutDate">check out</label>
+            <input name="checkOutDate" id="txtCheckOutDate" placeholder="dd/mm/yyyy" type="text"><br>
+            <input name="guests" id="nrGuests" placeholder="guests" type="number" min="1" max="10000"><br>
             <input name="airportPickup" id="chkAirportPickup" type="checkbox"><label for="chkAirportPickup">Airport Pickup</label>
             <input name="wifi" id="chkWifi" type="checkbox"><label for="chkWifi">Free Wi-Fi</label>
             <input name="restaurant" id="chkRestaurant" type="checkbox"><label for="chkRestaurant">Restaurant</label>
@@ -92,8 +96,11 @@
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script>
+        const sDefaultCheckIn = '20/12/2018'
+        const sDefaultCheckOut = '03/01/2019'
+        const iDefaultGuests = 1
         function hotelDiv(id,name,rating,address,availability){
-            return `<a href="hotelTest.php?id=${id}"><div class="boxHotel" data-id=${id}>
+            return `<div class="boxHotel" data-id=${id}>
                         <div>${name}</div>
                         <div><span>${rating}</span>
                         <span class="starsContainer">
@@ -108,9 +115,19 @@
                         </div>
                         <div>${address}</div>
                         <div>Availability: ${availability} rooms</div>
-                        </div></a>`}
+                        </div>`}
+
+        $(document).on('click','.boxHotel',function(){
+            const sId = $(this).attr('data-id')
+            const sCheckIn = $('#txtCheckInDate').val() ? $('#txtCheckInDate').val() : sDefaultCheckIn
+            const sCheckOut = $('#txtCheckOutDate').val() ? $('#txtCheckOutDate').val() : sDefaultCheckOut
+            const iGuests = $('#nrGuests').val() ? $('#nrGuests').val() :iDefaultGuests
+            window.location.href = `hotelTest.php?id=${sId}&checkIn=${sCheckIn}&checkOut=${sCheckOut}&guests=${iGuests}`
+        })
 
         $(document).ready(function(){
+            $('#txtCheckInDate').val(sDefaultCheckIn)
+            $('#txtCheckOutDate').val(sDefaultCheckOut)
             $.get('data.txt', function(data) {
                 for (const key in data.hotels) {
                     const jHotel = data.hotels[key]
