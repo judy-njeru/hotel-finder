@@ -1,0 +1,163 @@
+{
+    "cities":[
+        {
+            "city":"London",
+            "location":"Unitied Kingdom"
+        },
+        {
+            "city":"Los Angeles",
+            "location":"California, USA"
+        },
+        {
+            "city":"Lofoten",
+            "location":"Norway"
+        }
+    ],
+    "hotels":{
+        "ID01":{
+            "name":"London Royal Hotel",
+            "address":"48 Doughty St",
+            "rating":4,
+            "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
+            "amenities":{
+                "airportPickup":true,
+                "wifi":true,
+                "restaurant":true,
+                "airConditioning":true,
+                "roomService":false,
+                "meetingRooms":true,
+                "freeParking":false
+            },
+            "rooms":{
+                "type1":{
+                    "name":"Standard Double Room",
+                    "beds":2,
+                    "price":288,
+                    "currency":"USD",
+                    "availability":29
+                },
+                "type2":{
+                    "name":"Standard Triple Room",
+                    "beds":3,
+                    "price":399,
+                    "currency":"USD",
+                    "availability":9
+                },
+                "type3":{
+                    "name":"Superior Twin Room",
+                    "beds":2,
+                    "price":722,
+                    "currency":"USD",
+                    "availability":5
+                }
+            }
+        },
+        "ID02":{
+            "name":"Charles Dickens Hotel",
+            "address":"25 Red Lion Square",
+            "rating":3.5,
+            "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
+            "amenities":{
+                "airportPickup":false,
+                "wifi":true,
+                "restaurant":false,
+                "airConditioning":true,
+                "roomService":false,
+                "meetingRooms":true,
+                "freeParking":true
+            },
+            "rooms":{
+                "type1":{
+                    "name":"Standard Double Room",
+                    "beds":2,
+                    "price":288,
+                    "currency":"USD",
+                    "availability":3
+                },
+                "type2":{
+                    "name":"Standard Triple Room",
+                    "beds":3,
+                    "price":399,
+                    "currency":"USD",
+                    "availability":1
+                },
+                "type3":{
+                    "name":"Superior Twin Room",
+                    "beds":2,
+                    "price":722,
+                    "currency":"USD",
+                    "availability":7
+                }
+            }
+        },
+        "ID03":{
+            "name":"The Ritz Cracker",
+            "address":"47 Frith St",
+            "rating":4.5,
+            "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
+            "amenities":{
+                "airportPickup":true,
+                "wifi":true,
+                "restaurant":true,
+                "airConditioning":true,
+                "roomService":true,
+                "meetingRooms":true,
+                "freeParking":true
+            },
+            "rooms":{
+                "type1":{
+                    "name":"Standard Double Room",
+                    "beds":2,
+                    "price":589,
+                    "currency":"USD",
+                    "availability":2
+                },
+                "type2":{
+                    "name":"Standard Triple Room",
+                    "beds":3,
+                    "price":849,
+                    "currency":"USD",
+                    "availability":1
+                },
+                "type3":{
+                    "name":"Superior Twin Room",
+                    "beds":2,
+                    "price":1399,
+                    "currency":"USD",
+                    "availability":2
+                }
+            }
+        },
+        "ID04":{
+            "name":"Queen's Palace",
+            "address":"55 York Road",
+            "rating":5,
+            "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
+            "amenities":{
+                "airportPickup":true,
+                "wifi":true,
+                "restaurant":true,
+                "airConditioning":true,
+                "roomService":true,
+                "meetingRooms":true,
+                "freeParking":true
+            },
+            "rooms":{
+                "type1":{
+                    "name":"Fancy Single Room",
+                    "beds":1,
+                    "price":999,
+                    "currency":"USD",
+                    "availability":0
+                },
+                "type2":{
+                    "name":"Luxury Double Room",
+                    "beds":2,
+                    "price":1599,
+                    "currency":"USD",
+                    "availability":2
+                }
+            }
+        }
+    }
+}
