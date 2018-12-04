@@ -30,7 +30,7 @@
         .starsFill{
             position:absolute;
             height: 12px;
-            background-color:#005fb2;
+            background-color:#FFC107;
             z-index:-1;
             left:0;
             top:0;
