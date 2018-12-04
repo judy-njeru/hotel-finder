@@ -29,28 +29,35 @@
                 "freeParking":{"available":false,"text":"Free Parking"}
             },
             "rooms":{
-                "type1":{
+                "type01":{
                     "name":"Standard Double Room",
                     "beds":2,
                     "price":288,
                     "currency":"USD",
                     "availability":29
                 },
-                "type2":{
+                "type02":{
                     "name":"Standard Triple Room",
                     "beds":3,
                     "price":399,
                     "currency":"USD",
                     "availability":9
                 },
-                "type3":{
+                "type03":{
                     "name":"Superior Twin Room",
                     "beds":2,
                     "price":722,
                     "currency":"USD",
                     "availability":5
                 }
-            }
+            },
+            "images":[
+                "images/hotel-images/img001.jpg",
+                "images/hotel-images/img009.jpg",
+                "images/hotel-images/img010.jpeg",
+                "images/hotel-images/img012.jpg",
+                "images/hotel-images/img013.jpg"
+            ]
         },
         "ID02":{
             "name":"Charles Dickens Hotel",
@@ -67,28 +74,35 @@
                 "freeParking":{"available":false,"text":"Free Parking"}
             },
             "rooms":{
-                "type1":{
+                "type01":{
                     "name":"Standard Double Room",
                     "beds":2,
                     "price":288,
                     "currency":"USD",
                     "availability":3
                 },
-                "type2":{
+                "type02":{
                     "name":"Standard Triple Room",
                     "beds":3,
                     "price":399,
                     "currency":"USD",
                     "availability":1
                 },
-                "type3":{
+                "type03":{
                     "name":"Superior Twin Room",
                     "beds":2,
                     "price":722,
                     "currency":"USD",
                     "availability":7
                 }
-            }
+            },
+            "images":[
+                "images/hotel-images/img002.jpg",
+                "images/hotel-images/img008.jpg",
+                "images/hotel-images/img011.jpg",
+                "images/hotel-images/img016.jpg",
+                "images/hotel-images/img014.jpg"
+            ] 
         },
         "ID03":{
             "name":"The Ritz Cracker",
@@ -105,28 +119,35 @@
                 "freeParking":{"available":true,"text":"Free Parking"}
             },
             "rooms":{
-                "type1":{
+                "type01":{
                     "name":"Standard Double Room",
                     "beds":2,
                     "price":589,
                     "currency":"USD",
                     "availability":2
                 },
-                "type2":{
+                "type02":{
                     "name":"Standard Triple Room",
                     "beds":3,
                     "price":849,
                     "currency":"USD",
                     "availability":1
                 },
-                "type3":{
+                "type03":{
                     "name":"Superior Twin Room",
                     "beds":2,
                     "price":1399,
                     "currency":"USD",
                     "availability":2
                 }
-            }
+            },
+            "images":[
+                "images/hotel-images/img003.jpg",
+                "images/hotel-images/img005.jpg",
+                "images/hotel-images/img017.jpeg",
+                "images/hotel-images/img010.jpeg",
+                "images/hotel-images/img006.jpg"
+            ]
         },
         "ID04":{
             "name":"Queen's Palace",
@@ -143,21 +164,28 @@
                 "freeParking":{"available":true,"text":"Free Parking"}
             },
             "rooms":{
-                "type1":{
+                "type01":{
                     "name":"Fancy Single Room",
                     "beds":1,
                     "price":999,
                     "currency":"USD",
                     "availability":0
                 },
-                "type2":{
+                "type02":{
                     "name":"Luxury Double Room",
                     "beds":2,
                     "price":1599,
                     "currency":"USD",
                     "availability":2
                 }
-            }
+            },
+            "images":[
+                "images/hotel-images/img004.jpeg",
+                "images/hotel-images/img008.jpg",
+                "images/hotel-images/img007.jpeg",
+                "images/hotel-images/img017.jpeg",
+                "images/hotel-images/img015.jpg"
+            ]
         }
     }
 }

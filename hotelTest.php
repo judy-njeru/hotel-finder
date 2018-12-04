@@ -34,58 +34,80 @@
         .marginTop{
             margin-top:20px;
         }
+        .boxImg{
+            background-size:cover;
+            background-position:center;
+        }
+        .banner{
+            height:250px;
+            width:100%;
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr;
+        }
+        .banner div:first-child{
+            grid-column-start: 1;
+            grid-column-end: 3;
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
     </style>
 </head>
 <body>
+    <?php
+        ini_set('display_errors', 1);
+        // svg image for stars rating
+        require_once 'components/svg-stars.php';
+
+        // get hotel data from the id
+        $sId = $_GET['id'];
+        $sData = file_get_contents('data.txt');
+        $jData = json_decode($sData);
+        $jHotel = $jData->hotels->$sId;
+        $sAmenities = '';
+        // redirect if !id 
+        if (!$jHotel){
+            header('Location:hotelsTest.php');
+        }
+    ?>
+
+    <div class="banner">
+        <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[0] ?>)"></div>
+        <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[1] ?>)"></div>
+        <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[2] ?>)"></div>
+        <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[3] ?>)"></div>
+        <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[4] ?>)"></div>
+    </div>
     <div id="boxInfo">
-        <?php
-            ini_set('display_errors', 1);
-            // svg image for stars rating
-            require_once 'components/svg-stars.php';
-
-            // hotel div template
-            $sHotelDiv = "<div>#name#</div>
-                            <div>#address#</div>
-                            <div>
-                                <span>#rating#</span>
-                                <span class='starsContainer'>
-                                    $svgStars
-                                    <div class='starsBackground'></div>
-                                    <div class='starsFill' style='width:calc(60px*(#rating#/5)'></div>
-                                </span>
-                            </div>
-                            <div>#description#</div>
-                            <div>#amenities#</div>";
-
-            // get hotel data from the id
-            $sId = $_GET['id'];
-            $sData = file_get_contents('data.txt');
-            $jData = json_decode($sData);
-            $jHotel = $jData->hotels->$sId;
-            $sAmenities = '';
-            // redirect if !id 
-            if (!$jHotel){
-                header('Location:hotelsTest.php');
-            }
-            foreach ($jHotel->amenities as $key => $value) {
-                $sAmenities = $sAmenities . "<span>️️️️️️✔️$value->text</span>";
-            }
-            $sTempHotelDiv = $sHotelDiv;
-            // array containing the placeholders
-            $find = array('#name#','#address#','#rating#','#description#','#amenities#');
-            // array containing the values - must be same order as placeholder array
-            $replace = array($jHotel->name,$jHotel->address,$jHotel->rating,$jHotel->description,$sAmenities);
-            // replace placeholders with values
-            echo str_replace($find,$replace,$sTempHotelDiv);
-        ?>
+           
+        <div><?php echo $jHotel->name ?></div>
+        <div><?php echo $jHotel->address ?></div>
         <div>
-            <input id="txtCheckIn" value="<?php echo $_GET['checkIn']; ?>" placeholder='dd/mm/yyy'>
-            <input id="txtCheckOut" value="<?php echo $_GET['checkOut']; ?>" placeholder='dd/mm/yyy'><br>
+            <span><?php echo $jHotel->rating ?></span>
+            <span class='starsContainer'>
+                <?php echo $svgStars ?>
+                <div class='starsBackground'></div>
+                <div class='starsFill' style='width:calc(60px*(<?php echo $jHotel->rating ?>/5)'></div>
+            </span>
+        </div>
+        <div><?php echo $jHotel->description ?></div>
+        <div>
+            <?php foreach ($jHotel->amenities as $key => $value) {
+                if($value->available == true){
+                    echo "<span>️️️️️️✔️$value->text</span>";
+                }
+            } ?>
+        </div>
+
+        <div>
+            <input class="txtDate" id="txtCheckInDate" value="<?php echo $_GET['checkIn']; ?>" placeholder='dd/mm/yyy'>
+            <input class="txtDate" id="txtCheckOutDate" value="<?php echo $_GET['checkOut']; ?>" placeholder='dd/mm/yyy'><br>
             <!-- <input id="nrGuests" placeholder="guests" type="number" min="1" max="10000" value="<?php //echo $_GET['guests']; ?>"><br> -->
             <?php
+                // room div template with placeholders
                 $sRoomDiv = "<div class='marginTop' data-id='#id#'>
                     <div>#name#</div>
-                    <div>$<span class='boxPrice'>#price#</span> per night</div>
+                    <div><span class='boxPrice'>#price#</span>DKK per night</div>
                     <div>beds: <span class='boxBeds'>#beds#<span></div>
                     <div>availability: #availability#</div>
                     <input class='nrRooms' type='number' placaholder='0' min='0' max='#availability#' value='#rooms#'>
@@ -133,48 +155,57 @@
             ?>
             <div class="marginTop">
                 <div>total</div>
+                <div>nights:<span id="boxTotalNights"></span></div>
                 <div>rooms:<span id="boxTotalRooms"></span></div>
                 <div>beds:<span id="boxTotalBeds"></span></div>
-                <div>price:<span id="boxTotalPrice"></span></div>
+                <div>amount:<span id="boxTotalPrice"></span>DKK</div>
             </div>
             <button id="btnBookNow">Book now?</button>
         </div>
     </div>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script>
         let jRooms = {}
         // displays the total according to selection
         function setTotalInfo(){
+            const iNights = getNumberOfNights()
             let iRooms = 0
             let iBeds = 0
             let iPrice = 0
             $('.nrRooms').map(function(){
                 const sId = $(this).parent().attr('data-id')
-                // console.log(sId)
                 jRooms[sId] = Number($(this).val())
-                console.log(jRooms)
                 iRooms = iRooms + Number($(this).val())
                 iBeds = iBeds + Number($(this).val()) * Number($(this).siblings().children('.boxBeds').text())
                 iPrice = iPrice + Number($(this).val()) * Number($(this).siblings().children('.boxPrice').text())
             })
+            $('#boxTotalNights').text(iNights)
             $('#boxTotalRooms').text(iRooms)
             $('#boxTotalBeds').text(iBeds)
-            $('#boxTotalPrice').text('$'+iPrice)
+            $('#boxTotalPrice').text(iPrice*iNights)
         }
 
         // triggers setTotalInfo when page loads
         $(document).ready(setTotalInfo())
         // triggers setTotalInfo when selection changes
         $(document).on('change','.nrRooms',function(){setTotalInfo()})
+        $(document).on('change','.txtDate',function(){setTotalInfo()})
 
         $(document).on('click','#btnBookNow',function(){
             const sId = <?php echo json_encode($_GET['id']) ?>;
-            const sCheckIn = $('#txtCheckIn').val()
-            const sCheckOut = $('#txtCheckOut').val()
+            const sCheckIn = $('#txtCheckInDate').val()
+            const sCheckOut = $('#txtCheckOutDate').val()
             const sRooms = JSON.stringify(jRooms);
             window.location.href = `confirmTest.php?id=${sId}&checkIn=${sCheckIn}&checkOut=${sCheckOut}&rooms=${sRooms}`
         })
+
+        function getNumberOfNights(){
+            var momentCheckIn = moment($('#txtCheckInDate').val(), 'DD/MM/YYYY')
+            var momentCheckOut = moment($('#txtCheckOutDate').val(), 'DD/MM/YYYY')
+            return momentCheckOut.diff(momentCheckIn,'days')
+        }
     </script>
 </body>
 </html>
