@@ -9,6 +9,7 @@ body {
 svg.logo {
   height: 50px;
   width: 40px; }
+
 svg path {
   fill: #ffffff; }
 
@@ -104,5 +105,3 @@ div.navbarContainer {
         margin-right: 0; }
         .modal .modal-content .container .btnLoginUser:hover, .modal .modal-content .container .btnSignUpUser:hover, .loginModal .modal-content .container .btnLoginUser:hover, .loginModal .modal-content .container .btnSignUpUser:hover {
           background-color: #ffc107; }
-
-/*# sourceMappingURL=main.css.map */
