@@ -43,9 +43,11 @@ body {
                 }
 
                 .searchDropdown {
+                    display: none;
+                    position: absolute;
+                    left: 0px;
                     width: 100%;
                     border: none;
-                    display: none;
                     padding: 8px;
                     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
                     background-color: #fff;
