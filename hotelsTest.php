@@ -38,6 +38,16 @@
         .boxHotel{
             margin-top:20px;
         }
+        #boxHotels{
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+        }
+        .boxImg{
+            height:150px;
+            width:200px;
+            background-size:cover;
+            background-position:center;
+        }
     </style>
 </head>
 <body>
@@ -61,14 +71,15 @@
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
     <script>
-        const sDefaultCheckIn = '20/12/2018'
+        const sDefaultCheckIn = '28/12/2018'
         const sDefaultCheckOut = '03/01/2019'
         const iDefaultGuests = 1
 
         // returns the hotel div with set values - works like a template
-        function hotelDiv(id,name,rating,address,availability,price){
+        function hotelDiv(id,name,rating,address,availability,price,img){
             return `<div class="boxHotel" data-id=${id}>
-                        <div><span>${name}</span></div>
+                        <div class="boxImg" style="background-image:url(${img})"></div>
+                        <div>${name}</div>
                         <div><span>${rating}</span>
                         <span class="starsContainer">
                             <svg class="starsShape" width="60px" height="12px" viewBox="0 0 60 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -82,7 +93,7 @@
                         </div>
                         <div>${address}</div>
                         <div>Availability: ${availability} rooms</div>
-                        <div> Price from: <span class='boxPrice'>${price}</span></div>
+                        <div> Price from: ${price} DKK per night</div>
                         </div>`}
 
         // get the url for the single hotel page
@@ -103,10 +114,11 @@
                     const jHotel = data.hotels[key]
                     let iAvailability = 0
                     iPrice = getPrice(jHotel)
+                    const sImg = jHotel.images[0]
                     for (const room in jHotel.rooms) {
                         iAvailability += jHotel.rooms[room].availability
                     }
-                    $('#boxHotels').append(hotelDiv(key,jHotel.name,jHotel.rating,jHotel.address,iAvailability,iPrice))
+                    $('#boxHotels').append(hotelDiv(key,jHotel.name,jHotel.rating,jHotel.address,iAvailability,iPrice,sImg))
                 }
             },'json')
         })
@@ -121,16 +133,17 @@
                 for (const key in data.hotels) {
                     jChecked[key] = true
                     const jHotel = data.hotels[key]
+                    const sImg = jHotel.images[0]
                     if(aChecked.length > 0){
                         for (const checkbox of aChecked) {
-                            if(jHotel.amenities[checkbox.name] != true){
+                            if(jHotel.amenities[checkbox.name].available != true){
                                 jChecked[key] = false
                             }
                         }
                     }
                     let iAvailabilityBeds = 0
                     let iAvailabilityRooms = 0
-                    let iPrice = getPrice(jHotel)
+                    const iPrice = getPrice(jHotel)
                     for (const room in jHotel.rooms) {
                         iAvailabilityBeds += jHotel.rooms[room].availability * jHotel.rooms[room].beds
                         iAvailabilityRooms += jHotel.rooms[room].availability
@@ -139,7 +152,7 @@
                         jChecked[key] = false
                     }
                     if(jChecked[key] == true){
-                        $('#boxHotels').append(hotelDiv(key,jHotel.name,jHotel.rating,jHotel.address,iAvailabilityRooms,iPrice))
+                        $('#boxHotels').append(hotelDiv(key,jHotel.name,jHotel.rating,jHotel.address,iAvailabilityRooms,iPrice,sImg))
                         bNoResults = false
                     }
                 }
