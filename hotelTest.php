@@ -107,7 +107,7 @@
                 // room div template with placeholders
                 $sRoomDiv = "<div class='marginTop' data-id='#id#'>
                     <div>#name#</div>
-                    <div>$<span class='boxPrice'>#price#</span> per night</div>
+                    <div><span class='boxPrice'>#price#</span>DKK per night</div>
                     <div>beds: <span class='boxBeds'>#beds#<span></div>
                     <div>availability: #availability#</div>
                     <input class='nrRooms' type='number' placaholder='0' min='0' max='#availability#' value='#rooms#'>
