@@ -26,35 +26,51 @@ body {
             text-align: center;
             color: $white;
 
-            div#searchInput {
+            div#searchContainer {
                 position:relative;
 
                 input {
                     width:100%;
                     border: none;
-                    padding: 14px 0px 14px 5px;
+                    padding: 14px 0px 14px 8px;
                     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     
                     &:focus {
                         border:none;
                         outline: none;
+                        box-shadow: none;
                     }
                 }
 
-                button.btnSearch {
-                    position:absolute;
-                    right:0;
-                    top:0;
-                    padding: 14px 16px 14px 16px;
-                    text-transform: uppercase;
-                    background-color: $primaryblue;
-                    font-weight: 600;
-                    color: $white;
+                .searchDropdown {
+                    width: 100%;
                     border: none;
-                    cursor: pointer;
+                    display: none;
+                    padding: 8px;
+                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+                    background-color: #fff;
 
-                    &:hover {
-                        background-color: $primaryyellow; 
+                    a {
+                        text-align: left;
+                        text-decoration: none;
+
+                        div {
+                            &:hover {
+                                background-color: #eeeeee;
+                            }
+
+                            span {
+                                color: #212121;
+                                font-family: $openSansFont;
+                                font-size:14px;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+
+                    div#noSearchResults{
+                        color: red;
+                        text-align: left;
                     }
                 }
             }

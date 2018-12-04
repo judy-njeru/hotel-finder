@@ -35,6 +35,10 @@ div.navbarContainer {
         cursor: pointer; }
         div.navbarContainer div#navbar div.nav-right div:hover {
           color: #ffc107; }
+      div.navbarContainer div#navbar div.nav-right div.user {
+        cursor: unset; }
+        div.navbarContainer div#navbar div.nav-right div.user:hover {
+          color: #ffffff; }
 
 /*........ LOGIN / SIGNUP USER ........ */
 .modal, .loginModal {
@@ -76,6 +80,9 @@ div.navbarContainer {
       display: flex;
       align-items: center;
       flex-direction: column; }
+      .modal .modal-content .container div#error, .loginModal .modal-content .container div#error {
+        color: red;
+        padding: 10px; }
       .modal .modal-content .container label, .loginModal .modal-content .container label {
         color: #ffffff; }
       .modal .modal-content .container input[type=text], .modal .modal-content .container input[type=password], .loginModal .modal-content .container input[type=text], .loginModal .modal-content .container input[type=password] {
