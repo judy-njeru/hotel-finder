@@ -20,13 +20,13 @@
             "rating":4,
             "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
             "amenities":{
-                "airportPickup":true,
-                "wifi":true,
-                "restaurant":true,
-                "airConditioning":true,
-                "roomService":false,
-                "meetingRooms":true,
-                "freeParking":false
+                "airportPickup":{"available":true,"text":"Airport Pickup"},
+                "wifi":{"available":true,"text":"Free Wifi"},
+                "restaurant":{"available":true,"text":"Restaurant"},
+                "airConditioning":{"available":true,"text":"Air Conditioning"},
+                "roomService":{"available":false,"text":"Room Service"},
+                "meetingRooms":{"available":true,"text":"Meeteing Rooms"},
+                "freeParking":{"available":false,"text":"Free Parking"}
             },
             "rooms":{
                 "type1":{
@@ -58,13 +58,13 @@
             "rating":3.5,
             "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
             "amenities":{
-                "airportPickup":false,
-                "wifi":true,
-                "restaurant":false,
-                "airConditioning":true,
-                "roomService":false,
-                "meetingRooms":true,
-                "freeParking":true
+                "airportPickup":{"available":false,"text":"Airport Pickup"},
+                "wifi":{"available":true,"text":"Free Wifi"},
+                "restaurant":{"available":false,"text":"Restaurant"},
+                "airConditioning":{"available":true,"text":"Air Conditioning"},
+                "roomService":{"available":false,"text":"Room Service"},
+                "meetingRooms":{"available":true,"text":"Meeteing Rooms"},
+                "freeParking":{"available":false,"text":"Free Parking"}
             },
             "rooms":{
                 "type1":{
@@ -96,13 +96,13 @@
             "rating":4.5,
             "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
             "amenities":{
-                "airportPickup":true,
-                "wifi":true,
-                "restaurant":true,
-                "airConditioning":true,
-                "roomService":true,
-                "meetingRooms":true,
-                "freeParking":true
+                "airportPickup":{"available":true,"text":"Airport Pickup"},
+                "wifi":{"available":true,"text":"Free Wifi"},
+                "restaurant":{"available":true,"text":"Restaurant"},
+                "airConditioning":{"available":true,"text":"Air Conditioning"},
+                "roomService":{"available":true,"text":"Room Service"},
+                "meetingRooms":{"available":true,"text":"Meeteing Rooms"},
+                "freeParking":{"available":true,"text":"Free Parking"}
             },
             "rooms":{
                 "type1":{
@@ -134,13 +134,13 @@
             "rating":5,
             "description":"Lorem ipsum dolor sit amet, est ne adhuc malis, eu falli instructior mel, has ei reque feugiat. Et accusamus patrioque theophrastus mea, hinc lorem vivendo te cum. Sea detracto constituto in. In pri odio dicat velit. Usu adipisci accusamus corrumpit ei, cu adipisci posidonium conclusionemque sea. ",
             "amenities":{
-                "airportPickup":true,
-                "wifi":true,
-                "restaurant":true,
-                "airConditioning":true,
-                "roomService":true,
-                "meetingRooms":true,
-                "freeParking":true
+                "airportPickup":{"available":true,"text":"Airport Pickup"},
+                "wifi":{"available":true,"text":"Free Wifi"},
+                "restaurant":{"available":true,"text":"Restaurant"},
+                "airConditioning":{"available":true,"text":"Air Conditioning"},
+                "roomService":{"available":true,"text":"Room Service"},
+                "meetingRooms":{"available":true,"text":"Meeteing Rooms"},
+                "freeParking":{"available":true,"text":"Free Parking"}
             },
             "rooms":{
                 "type1":{
