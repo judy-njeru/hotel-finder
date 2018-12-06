@@ -1,20 +1,26 @@
 @import "partials/colors.scss";
 @import "partials/fonts.scss";
         *{
-            color:black;
-            text-decoration:none;
-            
+            color: $font-primary;
+            text-decoration:none;     
+        }
+
+        body {
+            background: $background-color;
         }
 
         .navbarContainer {
             height: 64px;
             width: 100vw;
             position: fixed;
+            background: $white;
             #navbar {
                 display: flex;
                 align-items: center;
+                background: $white;
 
                 .nav-left {
+                    background: $white;
                     .logo {
                         .pin {
                             fill: $primaryblue;
@@ -24,6 +30,18 @@
                         }
                     }
                 }
+                .nav-right {
+                    background: $white;
+                    
+                    .loginUser {
+                        color: $primaryblue;
+                        background: $white;
+                    }
+                    .signUpUser {
+                        color: $primaryblue;
+                        background: $white;
+                    }
+                }
             }
 
         }
@@ -31,6 +49,119 @@
         .container {
             position: relative;
             top: 64px;
+            display: flex;
+            width: 100vw;
+            height: auto;
+
+            #boxFilters {
+                width: 20vw;
+                min-width: 200px;
+                height: 100%; 
+                display: flex;
+                flex-direction: column;
+                background: $white;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+                background: $white;
+                .divider {
+                    width: 100%;
+                    height: 1px;
+                    background: $divider;
+                    margin: 8px 0;
+                }
+                .search_field {
+                    margin: 8px 16px;
+                    width: calc(100% - 32px);
+                    display: flex;
+                    border: 1px solid $divider;
+                    border-radius: 4px;
+                    padding: 8px;
+                    display: flex;
+                    
+                    input {
+                        min-height: 28px;
+                        outline: none;
+                        border: 0;
+                        margin-left: auto;
+                    }
+                }
+                .destination {
+                    height: 54px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    border: none;
+                    
+                    
+                    i {
+                        padding-right: 8px;
+                        color: $font-secondary;
+                    }
+                    input {
+                        margin-left: 0;
+                        &::placeholder {
+                            font-size: $subtitle;
+                        }
+                    }
+                }
+                .search_btn {
+                    align-self: center;
+                    height: 36px;
+                    width: calc(100% - 32px);
+                    padding: 0 16px;
+                    background: $primaryblue;
+                    color: $white;
+                }
+                .header {
+                    font-size: $body1;
+                    font-weight: 600;
+                    padding: 8px 16px;
+                }
+    
+                .checkbox_items {
+                    padding: 0 16px;
+                    label {
+                        padding-left: 16px;
+                    }
+                }
+                .range-items {
+                    align-self: center;
+                    height: auto;
+                    width: 100%;
+                    padding: 0 16px;
+                    
+                    .range-slider {
+                        width: 100%;
+                        height: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        font-size: $caption;
+                        .slider-items {
+                            .range {
+                                width: 100%;
+                            }
+                        }
+                       
+                       .from-to-items {
+                           display: flex;
+                           justify-content: space-between;
+
+                           .value {
+                               display: flex;
+                               i {
+                                   width: 8px;
+                                   height: 8px;
+                                   font-size: 8px;
+                                   color: $primaryyellow;           
+                               }
+                           }
+                       }  
+                    }
+                }
+            }
+            #boxHotels {
+                width: 80vw;
+            }
         }
         .starsContainer{
             position:relative;
@@ -63,6 +194,7 @@
         #boxHotels{
             display:grid;
             grid-template-columns:1fr 1fr 1fr;
+            background: $white;
         }
         .boxImg{
             height:150px;
