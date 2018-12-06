@@ -43,7 +43,8 @@ body {
     flex-direction: column;
     background: #ffffff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
-    background: #ffffff; }
+    background: #ffffff;
+    padding-bottom: 16px; }
     .container #boxFilters .divider {
       width: 100%;
       height: 1px;
@@ -123,7 +124,8 @@ body {
 .starsShape {
   position: absolute;
   left: 0;
-  top: 0; }
+  top: 0;
+  z-index: 2; }
 
 .starsBackground {
   position: absolute;
@@ -148,10 +150,53 @@ body {
 #boxHotels {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  background: #ffffff; }
-
-.boxImg {
-  height: 150px;
-  width: 200px;
-  background-size: cover;
-  background-position: center; }
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-row-gap: 16px;
+  grid-column-gap: 16px;
+  padding: 16px; }
+  #boxHotels .boxHotel {
+    background: #ffffff;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.1); }
+    #boxHotels .boxHotel .boxImg {
+      height: 150px;
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      object-fit: cover; }
+    #boxHotels .boxHotel .hotel-details {
+      padding: 16px; }
+      #boxHotels .boxHotel .hotel-details .hotel-name {
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase; }
+      #boxHotels .boxHotel .hotel-details .star-items {
+        height: 24px;
+        display: flex;
+        align-items: center; }
+        #boxHotels .boxHotel .hotel-details .star-items .starsContainer {
+          margin-left: 8px;
+          z-index: 2;
+          bottom: 25%; }
+      #boxHotels .boxHotel .hotel-details .price-items {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        position: relative;
+        bottom: 0;
+        right: 0; }
+        #boxHotels .boxHotel .hotel-details .price-items .amount {
+          font-size: 16px;
+          font-weight: 600;
+          color: #005fb2; }
+        #boxHotels .boxHotel .hotel-details .price-items .per-night {
+          font-size: 12px;
+          font-weight: 300;
+          color: #828282; }
+      #boxHotels .boxHotel .hotel-details .description-items {
+        display: flex;
+        align-items: center;
+        font-size: 16px; }
+        #boxHotels .boxHotel .hotel-details .description-items i {
+          color: #4F4F4F;
+          font-size: 18px;
+          padding-right: 8px; }
