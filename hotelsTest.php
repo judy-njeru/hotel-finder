@@ -5,53 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        *{
-            color:black;
-            text-decoration:none;
-        }
-        .starsContainer{
-            position:relative;
-        }
-        .starsShape{
-            position:absolute;
-            left:0;
-            top:0;
-        }
-        .starsBackground{
-            position:absolute;
-            height: 12px;
-            width: 60px;
-            background-color:#bdbdbd;
-            z-index:-1;
-            left:0;
-            top:0;
-        }
-        .starsFill{
-            position:absolute;
-            height: 12px;
-            background-color:#FFC107;
-            z-index:-1;
-            left:0;
-            top:0;
-        }
-        .boxHotel{
-            margin-top:20px;
-        }
-        #boxHotels{
-            display:grid;
-            grid-template-columns:1fr 1fr 1fr;
-        }
-        .boxImg{
-            height:150px;
-            width:200px;
-            background-size:cover;
-            background-position:center;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/hotels.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
 </head>
 <body>
-    <div>
+<div class="navbarContainer">
+        <div id="navbar"> 
+            <a class="nav-left">
+                <svg class="logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" x="0px" y="0px">
+                    <path class="pin" d="m48.913 21.375c-15.747 0-23.936 12.271-23.797 24.542.193 17.861 17.855 24.542 23.797 49.08 5.955-24.542 23.83-31.611 23.83-49.08 0-12.271-9.249-24.542-23.822-24.542m.025 6.135l13.907 13.907-27.814 0 13.907-13.907m-9.841 15.649l19.658 0 0 19.682-19.658 0 0-19.682m3.349 3.349l0 5.522 5.497 0 0-5.522-5.497 0m7.465 0l0 5.522 5.522 0 0-5.522-5.522 0m-7.465 7.465l0 5.522 5.497 0 0-5.522-5.497 0m7.465 0l0 5.522 5.522 0 0-5.522-5.522 0"/>
+                    <path class="star" d="m78.51 24.511c-.486 1.492-.996 3.063-1.508 4.639-1.61-.003-3.353.004-4.884.004 1.322.961 2.681 1.95 3.948 2.869-.495 1.53-1.035 3.189-1.508 4.642 1.265-.923 2.611-1.893 3.952-2.866 1.417 1.028 2.655 1.927 3.948 2.866-.491-1.502-.996-3.062-1.508-4.642 1.303-.944 2.713-1.97 3.952-2.869-1.634 0-3.396 0-4.881 0"/>
+                    <path class="star" d="m19.379 24.511c-.486 1.492-.996 3.063-1.508 4.639-1.61-.003-3.353.004-4.884.004 1.322.961 2.681 1.95 3.948 2.869-.495 1.53-1.035 3.189-1.508 4.642 1.265-.923 2.611-1.893 3.952-2.866 1.417 1.028 2.655 1.927 3.948 2.866-.491-1.502-.996-3.062-1.508-4.642 1.303-.944 2.713-1.97 3.952-2.869-1.634 0-3.396 0-4.881 0"/>
+                    <path class="star" d="m30.16 9.547c-.521 1.603-1.069 3.289-1.619 4.982-1.729-.003-3.601.004-5.245.004 1.42 1.032 2.879 2.094 4.24 3.081-.532 1.643-1.112 3.425-1.619 4.986 1.359-.992 2.804-2.033 4.244-3.078 1.522 1.104 2.852 2.07 4.24 3.078-.527-1.613-1.069-3.289-1.619-4.986 1.4-1.014 2.914-2.116 4.244-3.081-1.754 0-3.648 0-5.242 0"/>
+                    <path class="star" d="m67.73 9.547c-.521 1.603-1.069 3.289-1.619 4.982-1.729-.003-3.601.004-5.245.004 1.42 1.032 2.879 2.094 4.24 3.081-.532 1.643-1.112 3.425-1.619 4.986 1.359-.992 2.804-2.033 4.244-3.078 1.522 1.104 2.852 2.07 4.24 3.078-.527-1.613-1.069-3.289-1.619-4.986 1.4-1.014 2.914-2.116 4.244-3.081-1.754 0-3.648 0-5.242 0"/>
+                    <path class="star" d="m48.947 2.863c-.589 1.811-1.208 3.717-1.83 5.629-1.953-.004-4.069.004-5.927.005 1.605 1.166 3.253 2.366 4.791 3.482-.601 1.856-1.257 3.869-1.83 5.633 1.535-1.121 3.168-2.297 4.795-3.478 1.719 1.248 3.222 2.339 4.791 3.478-.596-1.823-1.208-3.716-1.83-5.633 1.582-1.145 3.292-2.391 4.795-3.482-1.982 0-4.121 0-5.922 0"/>
+                </svg>
+            </a> 
+            
+            <div class="nav-right">
+  
+                <div class="loginUser" id="loginUser">LOGIN</div>
+
+                <div class="signUpUser" id="userSignUp">SIGNUP</div>
+                
+            </div> 
+        </div>
+    </div>
+    <div class="container">
         <div id="boxFilters">
             <label for="txtCheckInDate">check in</label>
             <input name="checkInDate" id="txtCheckInDate" placeholder="dd/mm/yyyy" type="text">
