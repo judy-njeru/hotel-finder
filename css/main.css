@@ -5,7 +5,8 @@
   font-family: Open Sans, sans-serif; }
 
 body {
-  font-size: 16px; }
+  font-size: 16px;
+  background: #FAFAF8; }
 
 svg.logo {
   height: 50px;

@@ -5,53 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .starsContainer{
-            position:relative;
-        }
-        .starsShape{
-            position:absolute;
-            left:0;
-            top:0;
-        }
-        .starsBackground{
-            position:absolute;
-            height: 12px;
-            width: 60px;
-            background-color:#bdbdbd;
-            z-index:-1;
-            left:0;
-            top:0;
-        }
-        .starsFill{
-            position:absolute;
-            height: 12px;
-            background-color:#FFC107;
-            z-index:-1;
-            left:0;
-            top:0;
-        }
-        .marginTop{
-            margin-top:20px;
-        }
-        .boxImg{
-            background-size:cover;
-            background-position:center;
-        }
-        .banner{
-            height:250px;
-            width:100%;
-            display:grid;
-            grid-template-columns:1fr 1fr 1fr 1fr;
-            grid-template-rows:1fr 1fr;
-        }
-        .banner div:first-child{
-            grid-column-start: 1;
-            grid-column-end: 3;
-            grid-row-start: 1;
-            grid-row-end: 3;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/hotel.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
 <body>
     <?php
@@ -79,38 +38,53 @@
         <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[4] ?>)"></div>
     </div>
     <div id="boxInfo">
-           
-        <div><?php echo $jHotel->name ?></div>
-        <div><?php echo $jHotel->address ?></div>
-        <div>
-            <span><?php echo $jHotel->rating ?></span>
-            <span class='starsContainer'>
-                <?php echo $svgStars ?>
-                <div class='starsBackground'></div>
-                <div class='starsFill' style='width:calc(60px*(<?php echo $jHotel->rating ?>/5)'></div>
-            </span>
-        </div>
-        <div><?php echo $jHotel->description ?></div>
-        <div>
-            <?php foreach ($jHotel->amenities as $key => $value) {
-                if($value->available == true){
-                    echo "<span>️️️️️️✔️$value->text</span>";
-                }
-            } ?>
-        </div>
+        <div class="box-item hotel-description-items">
+            <div class="headline-items">
+                <div class="hotel-name"><?php echo $jHotel->name ?></div>
+                <span class='starsContainer'>
+                    <?php echo $svgStars ?>
+                    <div class='starsBackground'></div>
+                    <div class='starsFill' style='width:calc(60px*(<?php echo $jHotel->rating ?>/5)'></div>
+                </span>
+            </div>
+            
+            
+            
+            <div class="address"><i class="material-icons">location_on</i> <?php echo $jHotel->address ?></div>
 
-        <div>
-            <input class="txtDate" id="txtCheckInDate" value="<?php echo $_GET['checkIn']; ?>" placeholder='dd/mm/yyy'>
-            <input class="txtDate" id="txtCheckOutDate" value="<?php echo $_GET['checkOut']; ?>" placeholder='dd/mm/yyy'><br>
+            <div class="amenity-items">
+                <?php foreach ($jHotel->amenities as $key => $value) {
+                    if($value->available == true){
+                        echo "<span>️️️️️️✔️$value->text</span>";
+                    }
+                } ?>
+            </div>
+            <div class="divider"></div>
+            <div class="about-items">
+                <div class="title">About</div>
+                <div class="text"><?php echo $jHotel->description ?></div>
+            </div>
+           <div class="location-items">
+               <div class="title">Location</div>
+               <img clas="map-img" src="/images/map.png" alt="">
+           </div>
+            
+        </div>
+        <div class="box-item hotel-rooms">
+            <div class="title">Rooms</div>
+            
             <!-- <input id="nrGuests" placeholder="guests" type="number" min="1" max="10000" value="<?php //echo $_GET['guests']; ?>"><br> -->
             <?php
                 // room div template with placeholders
                 $sRoomDiv = "<div class='marginTop' data-id='#id#'>
-                    <div>#name#</div>
-                    <div><span class='boxPrice'>#price#</span>DKK per night</div>
-                    <div>beds: <span class='boxBeds'>#beds#<span></div>
-                    <div>availability: #availability#</div>
-                    <input class='nrRooms' type='number' placaholder='0' min='0' max='#availability#' value='#rooms#'>
+                                <div class='room-items'>
+                                    <div>#name#</div>
+                                    <input class='nrRooms' type='number' placaholder='0' min='0' max='#availability#' value='#rooms#'>
+                                </div>
+                                <div class='room-items'>
+                                    <div class='extra-room-info'><span class='boxPrice'>#price#</span>DKK per night</div>
+                                    <div class='extra-room-info'>max rooms: #availability#</div>
+                                </div>
                 </div>";
                 // number of guests from the GET
                 $iGuests = $_GET['guests'];
@@ -153,6 +127,13 @@
                     echo str_replace($find,$replace,$sTempRoomDiv);
                 }
             ?>
+            <div class="divider"></div>
+            <div class="date-items">
+                <div class="header">Dates</div>
+                <input class="txtDate" id="txtCheckInDate" value="FROM <?php echo $_GET['checkIn']; ?>" placeholder='dd/mm/yyy'>
+                <input class="txtDate" id="txtCheckOutDate" value="TO <?php echo $_GET['checkOut']; ?>" placeholder='dd/mm/yyy'>
+            </div>
+            <div class="divider"></div>
             <div class="marginTop">
                 <div>total</div>
                 <div>nights:<span id="boxTotalNights"></span></div>

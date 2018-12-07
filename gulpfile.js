@@ -18,9 +18,15 @@ gulp.task('hotelsScss', function() {
     .pipe(sass())
     .pipe(gulp.dest('css'));
 })
+gulp.task('hotelScss', function() {
+    return gulp.src('scss/hotel.scss')
+    .pipe(sass())
+    .pipe(gulp.dest('css'));
+})
 
-gulp.task('watch', ['homeScss', 'mainScss', 'hotelsScss'], function() {
+gulp.task('watch', ['homeScss', 'mainScss', 'hotelsScss', 'hotelScss'], function() {
     gulp.watch(['scss/main.scss', 'scss/partials/*.scss'], ['mainScss']);
     gulp.watch(['scss/home.scss', 'scss/partials/*.scss'], ['homeScss']);
     gulp.watch(['scss/hotels.scss', 'scss/partials/*.scss'], ['hotelsScss']);
+    gulp.watch(['scss/hotel.scss', 'scss/partials/*.scss'], ['hotelScss']);
 })
