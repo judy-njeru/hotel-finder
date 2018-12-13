@@ -1,0 +1,261 @@
+@import "partials/colors.scss";
+@import "partials/fonts.scss";
+
+.navbarContainer {
+    height: 64px;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    background: $white;
+    #navbar {
+        display: flex;
+        align-items: center;
+        background: $white;
+
+        .nav-left {
+            background: $white;
+            .logo {
+                .pin {
+                    fill: $primaryblue;
+                }
+                .star {
+                    fill: $primaryyellow;
+                }
+            }
+        }
+        .nav-right {
+            background: $white;
+            
+            .loginUser {
+                color: $primaryblue;
+                background: $white;
+            }
+            .signUpUser {
+                color: $primaryblue;
+                background: $white;
+            }
+        }
+    }
+
+}
+
+.marginTop{
+    margin-top:20px;
+}
+.boxImg{
+    background-size:cover;
+    background-position:center;
+}
+.back-btn {
+    position: absolute;
+    z-index: 5;
+    padding: 16px;
+    color:  $white;
+    top: 70px;
+}
+.shadow {
+    width: 40px;
+    height: 255px;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgb(0, 0, 1));
+    position: absolute;
+    z-index: 4;
+    top: 59px;
+}
+.banner{
+    height: 250px;
+    width: 100%;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr;
+    position: relative;
+    margin-top: 64px;
+}
+.banner div:first-child{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+#boxInfo {
+    width: 100vw;
+    height: auto;
+    display: flex;
+    .divider {
+        width: 100%;
+        height: 1px;
+        background: $divider;
+        margin: 16px 0;
+    }
+    .title {
+        font-size: $title;
+        color: $darkblue;
+        font-weight: 700;
+        padding-bottom: 16px;
+    }
+    .hotel-description-items {
+        width: calc(70vw - 32px);
+        position: relative;
+       
+        
+        .headline-items {
+            display: flex;
+            .hotel-name {
+                font-size: $headline5;
+                font-weight: 700;
+                padding-right: 16px;
+            }
+            .starsContainer{
+                position:relative;
+                z-index: 2;
+                margin-top: 12px;
+                
+            }
+            .starsShape{
+                position:absolute;
+                left:0;
+                top:0;
+            }
+            .starsBackground{
+                position:absolute;
+                height: 12px;
+                width: 60px;
+                background-color:#bdbdbd;
+                z-index:-1;
+                left:0;
+                top:0;
+            }
+            .starsFill{
+                position:absolute;
+                height: 12px;
+                background-color:#FFC107;
+                z-index:-1;
+                left:0;
+                top:0;
+            }
+        }
+        .address {
+            color: $font-disabled;
+            padding: 8px 0 16px 0;
+            font-size: $subtitle;
+            display: flex;
+            align-items: center;
+            i {
+                padding-right: 8px;
+            }
+        }
+        .amenity-items {
+            span {
+                padding-right: 16px;
+                color: $font-secondary;
+                font-size: $body1;
+            }
+        }
+        
+        .about-items {
+            font-size: $body1;
+            padding-bottom: 16px;
+            
+        }
+        .location-items {
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+        }
+    }
+    .hotel-rooms {
+        width: calc(30vw - 32px);
+        height: auto;
+        position: relative;
+            
+        .date-items {
+            display: flex;
+            align-items: center;
+            color: $font-disabled;
+            font-size: $body1;
+            flex-wrap: wrap;
+            input {
+                margin-left: auto;
+                color: $font-disabled;
+                min-height: 28px;
+                width: auto;
+                outline: none;
+                border: 0;
+                margin-left: auto;
+                font-size: $caption;
+            }
+        }
+        .total-room-items {
+            .room-item {
+                display: flex;
+                justify-content: space-between;
+                font-size: $body1;
+                color: $font-disabled;
+            }
+        }
+        .room-items {
+            display: flex;
+            justify-content: space-between;
+            font-weight: 500;
+
+            .extra-room-info {
+                font-size: $caption;
+                color: $font-disabled;
+            }
+            input {
+                padding: 4px 16px;
+                border-radius: 4px;
+                text-align: center;
+                max-width: 64px;
+                margin-bottom: 4px;
+            }
+        }
+        .sum-up {
+            display: flex;
+            flex-direction: column;
+            .total-price-items {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .title {
+                    padding-bottom: 0;
+                }
+                .amount-items {
+                    align-self: center;
+                    display: flex;
+                    align-items: center;
+                    .price {
+                        padding-right: 8px;
+                        color: $primaryblue;
+                        font-size: $title;
+                        font-weight: 600;
+                    }
+                    .total-nights {
+                        
+                        color: $font-disabled;
+                        font-size: $caption;
+                    }
+                }
+            }
+        }
+        #btnBookNow {
+            width: 100%;
+            height: 48px;
+            padding: 0 16px;
+            background: $primaryblue;
+            color: $white;
+            font-size: $subtitle;
+            outline: none;
+            border: none;
+            margin: 16px 0;
+        }
+    }
+    .box-item {
+        padding: 16px;
+        margin: 16px;
+        background: $white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+        height: auto;
+    }
+}

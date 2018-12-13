@@ -2,16 +2,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
+  font-family: Open Sans, sans-serif; }
 
 body {
   font-size: 16px;
-}
+  background: #FAFAF8; }
 
 svg.logo {
   height: 50px;
-  width: 40px;
-}
+  width: 40px; }
+
 svg path {
   fill: #ffffff;
 }
@@ -20,36 +20,36 @@ div.navbarContainer {
   margin: 0 auto;
   padding: 0 2.0666667em;
   width: 100%;
+  height: 64px;
   position: fixed;
   z-index: 10;
-}
-div.navbarContainer div#navbar {
-  display: grid;
-  grid-template-columns: 6fr 1fr;
-  padding: 10px 0px 10px 0px;
-}
-div.navbarContainer div#navbar div.nav-right {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 10px 0px 10px 10px;
-  font-family: Open Sans, sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  text-align: right;
-  color: #ffffff;
-}
-div.navbarContainer div#navbar div.nav-right div {
-  cursor: pointer;
-}
-div.navbarContainer div#navbar div.nav-right div:hover {
-  color: #ffc107;
-}
-div.navbarContainer div#navbar div.nav-right div.user {
-  cursor: unset;
-}
-div.navbarContainer div#navbar div.nav-right div.user:hover {
-  color: #ffffff;
-}
+  display: flex;
+  align-items: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24); }
+  div.navbarContainer div#navbar {
+    display: grid;
+    grid-template-columns: 6fr 1fr;
+    align-items: center; }
+    div.navbarContainer div#navbar div.nav-right {
+      display: grid;
+      grid-template-columns: 6fr 1fr;
+      padding: 10px 0px 10px 10px;
+      font-family: Open Sans, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-align: right;
+      color: #ffffff;
+      padding-right: 16px; }
+      div.navbarContainer div#navbar div.nav-right div {
+        cursor: pointer; }
+        div.navbarContainer div#navbar div.nav-right div:hover {
+          color: #ffc107; }
+      div.navbarContainer div#navbar div.nav-right .loginUser {
+        text-align: start; }
+      div.navbarContainer div#navbar div.nav-right div.user {
+        cursor: unset; }
+        div.navbarContainer div#navbar div.nav-right div.user:hover {
+          color: #ffffff; }
 
 /*........ LOGIN / SIGNUP USER ........ */
 .modal, .loginModal {
@@ -62,71 +62,56 @@ div.navbarContainer div#navbar div.nav-right div.user:hover {
   height: 100%;
   overflow: hidden;
   background-color: #005fb2;
-  padding-top: 60px;
-}
-.modal .modal-content, .loginModal .modal-content {
-  margin: 0% auto 15% auto;
-  width: 40%;
-}
-.modal .modal-content svg, .loginModal .modal-content svg {
-  height: 100px;
-  width: 100px;
-}
-.modal .modal-content svg path, .loginModal .modal-content svg path {
-  fill: #ffc107;
-}
-.modal .modal-content h1, .loginModal .modal-content h1 {
-  font-family: Playfair Display, serif;
-  font-size: 40px;
-  color: #ffc107;
-  margin-bottom: 10px;
-}
-.modal .modal-content .closeOverlay .close, .loginModal .modal-content .closeOverlay .close {
-  position: absolute;
-  right: 15px;
-  top: 0;
-  color: #ffc107;
-  font-size: 30px;
-  font-weight: bold;
-}
-.modal .modal-content .closeOverlay .close:hover, .modal .modal-content .closeOverlay .close:focus, .loginModal .modal-content .closeOverlay .close:hover, .loginModal .modal-content .closeOverlay .close:focus {
-  color: #ffffff;
-  cursor: pointer;
-}
-.modal .modal-content .container, .loginModal .modal-content .container {
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.modal .modal-content .container div#error, .loginModal .modal-content .container div#error {
-  color: red;
-  padding: 10px;
-}
-.modal .modal-content .container label, .loginModal .modal-content .container label {
-  color: #ffffff;
-}
-.modal .modal-content .container input[type=text], .modal .modal-content .container input[type=password], .loginModal .modal-content .container input[type=text], .loginModal .modal-content .container input[type=password] {
-  width: 100%;
-  margin-bottom: 15px;
-  padding: 9px 10px;
-  font-size: 15px;
-  color: #6f6f6f;
-  border: 1px solid #ccc;
-}
-.modal .modal-content .container .btnLoginUser, .modal .modal-content .container .btnSignUpUser, .loginModal .modal-content .container .btnLoginUser, .loginModal .modal-content .container .btnSignUpUser {
-  padding: 13px;
-  background-color: #005fb2;
-  border: 2px solid #ffffff;
-  text-transform: uppercase;
-  color: #ffffff;
-  font-weight: 600;
-  cursor: pointer;
-  margin-left: auto;
-  margin-right: 0;
-}
-.modal .modal-content .container .btnLoginUser:hover, .modal .modal-content .container .btnSignUpUser:hover, .loginModal .modal-content .container .btnLoginUser:hover, .loginModal .modal-content .container .btnSignUpUser:hover {
-  background-color: #ffc107;
-}
-
-/*# sourceMappingURL=main.css.map */
+  padding-top: 60px; }
+  .modal .modal-content, .loginModal .modal-content {
+    margin: 0% auto 15% auto;
+    width: 40%; }
+    .modal .modal-content svg, .loginModal .modal-content svg {
+      height: 100px;
+      width: 100px; }
+      .modal .modal-content svg path, .loginModal .modal-content svg path {
+        fill: #ffc107; }
+    .modal .modal-content h1, .loginModal .modal-content h1 {
+      font-family: Playfair Display, serif;
+      font-size: 40px;
+      color: #ffc107;
+      margin-bottom: 10px; }
+    .modal .modal-content .closeOverlay .close, .loginModal .modal-content .closeOverlay .close {
+      position: absolute;
+      right: 15px;
+      top: 0;
+      color: #ffc107;
+      font-size: 30px;
+      font-weight: bold; }
+      .modal .modal-content .closeOverlay .close:hover, .modal .modal-content .closeOverlay .close:focus, .loginModal .modal-content .closeOverlay .close:hover, .loginModal .modal-content .closeOverlay .close:focus {
+        color: #ffffff;
+        cursor: pointer; }
+    .modal .modal-content .container, .loginModal .modal-content .container {
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      flex-direction: column; }
+      .modal .modal-content .container div#error, .loginModal .modal-content .container div#error {
+        color: red;
+        padding: 10px; }
+      .modal .modal-content .container label, .loginModal .modal-content .container label {
+        color: #ffffff; }
+      .modal .modal-content .container input[type=text], .modal .modal-content .container input[type=password], .loginModal .modal-content .container input[type=text], .loginModal .modal-content .container input[type=password] {
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 9px 10px;
+        font-size: 15px;
+        color: #6f6f6f;
+        border: 1px solid #ccc; }
+      .modal .modal-content .container .btnLoginUser, .modal .modal-content .container .btnSignUpUser, .loginModal .modal-content .container .btnLoginUser, .loginModal .modal-content .container .btnSignUpUser {
+        padding: 13px;
+        background-color: #005fb2;
+        border: 2px solid #ffffff;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: 600;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: 0; }
+        .modal .modal-content .container .btnLoginUser:hover, .modal .modal-content .container .btnSignUpUser:hover, .loginModal .modal-content .container .btnLoginUser:hover, .loginModal .modal-content .container .btnSignUpUser:hover {
+          background-color: #ffc107; }

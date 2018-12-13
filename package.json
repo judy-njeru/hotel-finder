@@ -1,0 +1,23 @@
+{
+  "name": "hotel-finder",
+  "version": "1.0.0",
+  "description": "The final project in Interface Design for a hotel booking system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/judy-njeru/hotel-finder.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/judy-njeru/hotel-finder/issues"
+  },
+  "homepage": "https://github.com/judy-njeru/hotel-finder#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
