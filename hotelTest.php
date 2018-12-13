@@ -43,16 +43,13 @@
         </a> 
         
         <div class="nav-right">
-
             <div class="loginUser" id="loginUser">LOGIN</div>
-
-            <div class="signUpUser" id="userSignUp">SIGNUP</div>
-            
+            <div class="signUpUser" id="userSignUp">SIGNUP</div>    
         </div> 
     </div>
 </div>
     
-    <a class="back-btn" href="/hotelsTest.php"><i class="material-icons">arrow_back_ios</i></a>
+    <a class="back-btn" href="./hotelTest.php"><i class="material-icons">arrow_back_ios</i></a>
     <div class="shadow"></div>
     <div class="banner">
         <div class="boxImg" style="background-image:url(<?php echo $jHotel->images[0] ?>)"></div>
@@ -72,8 +69,6 @@
                 </span>
             </div>
             
-            
-            
             <div class="address"><i class="material-icons">location_on</i> <?php echo $jHotel->address ?></div>
 
             <div class="amenity-items">
@@ -90,7 +85,7 @@
             </div>
            <div class="location-items">
                <div class="title">Location</div>
-               <img clas="map-img" src="/images/map.png" alt="">
+               <img clas="map-img" src="./images/map.png" alt="">
            </div>
             
         </div>
@@ -100,7 +95,7 @@
             <!-- <input id="nrGuests" placeholder="guests" type="number" min="1" max="10000" value="<?php //echo $_GET['guests']; ?>"><br> -->
             <?php
                 // room div template with placeholders
-                $sRoomDiv = "<div class='marginTop' data-id='#id#'>
+                $sRoomDiv = "<div class='marginTop boxRoom' data-id='#id#'>
                                 <div class='room-items'>
                                     <div>#name#</div>
                                     <input class='nrRooms' type='number' placaholder='0' min='0' max='#availability#' value='#rooms#'>
@@ -189,23 +184,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
     <script>
         let jRooms = {}
-        // displays the total according to selection
+
         function setTotalInfo(){
-            const iNights = getNumberOfNights()
-            let iRooms = 0
-            let iBeds = 0
-            let iPrice = 0
-            $('.nrRooms').map(function(){
-                const sId = $(this).parent().attr('data-id')
-                jRooms[sId] = Number($(this).val())
-                iRooms = iRooms + Number($(this).val())
-                iBeds = iBeds + Number($(this).val()) * Number($(this).siblings().children('.boxBeds').text())
-                iPrice = iPrice + Number($(this).val()) * Number($(this).siblings().children('.boxPrice').text())
+            $.getJSON('data.txt',function(data){
+                console.log("success")
+            }).done(function(data){
+                const urlParams = new URLSearchParams(window.location.search);
+                const hotelId = urlParams.get('id')
+                const jHotel = data.hotels[hotelId]
+
+                const iNights = getNumberOfNights()
+                let iRooms = 0
+                let iBeds = 0
+                let iPrice = 0
+                
+                $('.nrRooms').map(function(){
+                    const roomId = $(this).parents('.boxRoom').attr('data-id')
+                    jRooms[roomId] = Number($(this).val())
+                    iRooms = iRooms + Number($(this).val())
+                    iBeds = iBeds + Number($(this).val()) * jHotel.rooms[roomId].beds
+                    iPrice = iPrice + Number($(this).val()) * jHotel.rooms[roomId].price
+                })
+                $('#boxTotalNights').text(iNights)
+                $('#boxTotalRooms').text(iRooms)
+                $('#boxTotalBeds').text(iBeds)
+                $('#boxTotalPrice').text(iPrice*iNights)
             })
-            $('#boxTotalNights').text(iNights)
-            $('#boxTotalRooms').text(iRooms)
-            $('#boxTotalBeds').text(iBeds)
-            $('#boxTotalPrice').text(iPrice*iNights)
         }
 
         // triggers setTotalInfo when page loads
