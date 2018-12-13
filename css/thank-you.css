@@ -1,0 +1,36 @@
+.content-card {
+  background: #FAFAFA;
+  box-shadow: 4px 12px 36px 10px rgba(0, 0, 0, 0.07);
+}
+
+.upper-shape {
+  position: absolute;
+  top: -5vh;
+  left: -9vw;
+  transform: scale(1.5, 1.5);
+  z-index: -1;
+}
+.upper-shape path {
+  fill: #558CE5;
+}
+
+.lower-shape {
+  position: absolute;
+  bottom: -13vh;
+  right: -10vw;
+  transform: scale(-1.5, 1.5);
+  z-index: -1;
+}
+.lower-shape path {
+  fill: #558CE5;
+}
+
+#userSignUp {
+  color: #558CE5;
+}
+
+#loginUser {
+  color: #003682;
+}
+
+/*# sourceMappingURL=thank-you.css.map */

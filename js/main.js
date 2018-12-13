@@ -167,12 +167,6 @@ $(document).on('keyup','#txtSearch',function(){
     }
 })
 
-
-
-
-
-
-
 $(document).on("click", ".close", function(){
     location.href = './home.php';
 })
