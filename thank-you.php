@@ -6,10 +6,6 @@
     $userCardNumber = $_POST['userCardNumber'];
     }
 
-  // $tester = $_POST['tester'];
-  // echo $tester;
-
-
   $firstName = $_SESSION["firstName"];
   $lastName = $_SESSION["lastName"];
   $userEmail = $_SESSION["userEmail"];
@@ -28,12 +24,10 @@
   $jRating = $jData->hotels->$sId->rating;
 
 
-  echo $sId;
-  echo $sCheckIn;
-  echo $sCheckOut;
-  echo $sRooms;
-
-
+  // echo $sId;
+  // echo $sCheckIn;
+  // echo $sCheckOut;
+  // echo $sRooms;
 
   ?>
 
@@ -71,67 +65,89 @@
             </div> 
         </div>
     </div>
-
+  <div class="content-wrapper">
+    
+  </div>
     <div class="headline-message">
-      <h3>Thank you</h3>
-      <h4>Your booking has now been confirmed</h4>
+      <h3 class="big-headline">Thank you</h3>
+      <h4 class="second-headline">Your booking has now been confirmed</h4>
+    </div>
+    <div class="total-price">
+    <div class="title bold"></div>
+          <?php
+              $iTotalPrice = 0;
+              $iTax = 0;
+              foreach ($jRooms as $key => $value) {
+                  $iTotalPrice += $value * $jHotel->rooms->$key->price;
+                  $iTax = $iTotalPrice * 0.25;
+              }
+          ?>
+    
+      <div class="booking-total">
+          <span class="title bold total-price right-15px">Booking Total: </span> 
+          <span class="float-right title total-price"> <?php echo " DKK $iTotalPrice"; ?></span>
+          <div class="disclaimer-text faded-text"><p>The total price shown is the ammount  you will pay for the property</p></div>
+      </div>
     </div>
     <div class="content-card">
-      <div class="primary-guest">
-        <h5>Your information</h5>
-        <div class="guest-name">
-          Name
+      <div class="primary-guest top-margin left-margin">
+        <h5 class="s13pxMargin card-headline">Your information</h5>
+        <div class="guest-name s13pxMargin">
+          <p class="bold">Name</p> 
           <?php
             echo $firstName;
             echo $lastName;
           ?>  
         </div>
-        <div class="guest-email">
-          Email
+        <div class="guest-email s13pxMargin">
+           <p class="bold">Email</p> 
           <?php
             echo $userEmail; 
             ?>
         </div>
-        <div class="guest-phone">
-          Phone number
+        <div class="guest-phone s13pxMargin">
+          <p class="bold"> Phone number</p>
           <?php
             echo $userPhone;
           ?>
         </div>
-        <div class="guest-nationality">
-          Nationality
+        <div class="guest-nationality s13pxMargin">
+          <p class="bold">Nationality</p>  
           <?php
             echo $userNationality;
           ?>
         </div>
       </div>
-      <div class="card-number-info">
-        <h5>Payment method</h5>
-        <div>
-          <?php
-            echo "<div>Card ending in $userCardNumber </div>"
-          ?>
-        </div>
-      </div>
-      <div class="booking-details">
+      <div class="booking-details top-margin">
         <div class="type-of-room">
+        <p class='bold s13pxMargin card-headline'>Reservation</p>
           <?php 
             foreach ($jRooms as $key => $value) {
               if($value > 0){
                 echo "<div class='bold'>
-                  <div class='type-of-room'><span>".$jHotel->rooms->$key->name."</span> <span>x ".$value."</span></div>
+                  
+                  <div class='type-of-room s13pxMargin'><span>".$jHotel->rooms->$key->name."</span> <span>x ".$value."</span></div>
                 </div>";
               }
             } 
           ?>
         </div>
-        <div class="check-in-date">
-          <p>Check-in</p>
+        <div class="check-in-date s13pxMargin" >
+          <p class="bold">Check-in</p>
           <?php echo $sCheckIn?>
         </div>
-        <div class="check-out-date">
-          <p>Check-out</p>
+        <div class="check-out-date s13pxMargin">
+          <p class="bold">Check-out</p>
           <?php echo $sCheckOut?>
+        </div>
+        <div class="notice-text faded-text">Please note that additional supplements (e.g extra bed) are not added to this total</div>
+      </div>
+      <div class="card-number-info top-margin left-margin ">
+        <h5 class="bold card-headline s13pxMargin">Payment method</h5>
+        <div>
+          <?php
+            echo "<div>Card number:  $userCardNumber </div>"
+          ?>
         </div>
       </div>
       <button><a href="hotelsTest.php">BACK TO FRONT PAGE</a></button>

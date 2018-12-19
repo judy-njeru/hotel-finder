@@ -35,6 +35,16 @@ p, span {
   font-family: Open Sans, sans-serif;
 }
 
+.booking-headline {
+  font-family: Playfair Display, serif;
+  font-size: 28px;
+  margin-top: 5%;
+}
+
+.main-content {
+  margin-top: 7%;
+}
+
 .main-guest-card {
   background: #FCFCFC;
   box-shadow: 0px 4px 3px 0 rgba(0, 0, 0, 0.02);
@@ -152,6 +162,7 @@ p, span {
   width: 30%;
   margin: 1vw 3vh;
   background-color: #fafafa;
+  margin-top: 7%;
 }
 .side-bar .hotel-info-wrapper {
   margin-left: 7%;
